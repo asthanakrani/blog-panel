@@ -7,7 +7,15 @@ const addBlog = (req , res) => {
     res.render('pages/samples/add-blog');
 
 }
+const myBlog = (req , res) => {
+    blogmodel.find({userId:req.user.id})
+    .then(blogData => {
+        console.log("blog",blogData);
 
+        res.render('pages/samples/my-blog',{data:req.user,blogData:blogData});
+    })
+
+}
 const addBlogData = async (req, res) => {
     console.log("blogg add con");
     console.log("File data: ", req.file);
@@ -16,7 +24,8 @@ const addBlogData = async (req, res) => {
     const blogData = {
         title: req.body.title,
         description: req.body.description,
-        blog_img: req.file ? req.file.path : null
+        blog_img: req.file ? req.file.path : null,
+        userId : req.user._id,
     };
     try {
         let model = new blogmodel(blogData);
@@ -99,7 +108,7 @@ const updateBlog = async(req,res) => {
       }
 }
 const allBlog = async (req, res) => {
-    const blogData = await blogModel.find({});
-    res.render('pages/samples/allBlog', { data: req.user, blogData: blogData });
+    const blogData = await blogmodel.find({});
+    res.render('pages/samples/all-blog', { data: req.user, blogData: blogData });
 }
-module.exports = {addBlog,addBlogData,viewBlog,deleteBlog,editBlog,updateBlog,allBlog}
+module.exports = {addBlog,addBlogData,viewBlog,deleteBlog,editBlog,updateBlog,allBlog,myBlog}

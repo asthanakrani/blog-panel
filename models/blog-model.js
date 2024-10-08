@@ -12,6 +12,10 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    }
 });
 
 const blogModel = mongoose.model('blog', blogSchema);

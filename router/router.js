@@ -22,6 +22,7 @@ router.get('/viewBlog',isAuth,blog.viewBlog);
 router.get('/delete/:id',blog.deleteBlog)
 router.get('/edit/:id',isAuth,blog.editBlog)
 router.post('/editBlog/:id',upload.single('blog_img'),blog.updateBlog)
+router.get('/myBlog',blog.myBlog)
 router.post('/logInController', passport.authenticate('local', { failureRedirect: '/login' }),logIn.logInController)
 router.get('/allBlog', isAuth, blog.allBlog);
 // password

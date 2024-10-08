@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin2 </title>
+    <title>view blog</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/feather/feather.css">
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -244,8 +244,8 @@
                   <li class="nav-item"> <a class="nav-link" href="/addBlog"> Add blog </a></li>
                   <li class="nav-item"> <a class="nav-link" href=""> Edit blog </a></li>
                   <li class="nav-item"> <a class="nav-link" href="/viewBlog"> View blog </a></li>
-                  <li class="nav-item"> <a class="nav-link" href=""> All blog </a></li>
-                  <li class="nav-item"> <a class="nav-link" href=""> My blog </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/allBlog"> All blog </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/myBlog"> My blog </a></li>
                   
                 </ul>
               </div>
@@ -263,8 +263,6 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= blog.title %></h5>
                             <p class="card-text"><%= blog.description %></p>
-                            <a href="/edit/<%= blog._id %>" class="btn btn-warning">Edit</a>
-                            <a href="/delete/<%= blog._id %>" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
